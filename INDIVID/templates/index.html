@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Повноекранний макет</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Загальні стилі */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        /* Налаштування темного фону з золотими значками долара */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: black;
+            background-image: url('https://www.transparenttextures.com/patterns/golden-dollar.png'); /* 3D значки долара */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        
+        /* Контейнер сторінки */
+        .container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        /* Заголовок з двома блоками: BTC/USD і баланс */
+        header {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            padding: 10px;
+        }
+        
+        .input-box {
+            padding: 10px;
+            border: 2px solid gold;
+            border-radius: 5px;
+            background-color: white;
+            min-width: 150px;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        /* Основний блок з графіком та панеллю управління */
+        main {
+            display: flex;
+            width: 100%;
+            flex-grow: 1;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        /* Великий блок для графіка */
+        .large-box {
+            width: 65%;
+            height: 60%;
+            border: 2px solid rgb(180, 179, 177);
+            background-color: white;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer; /* Додаємо ефект курсора, щоб вказати, що це клікабельний елемент */
+        }
+        
+        /* Панель кнопок Buy та Sell */
+        .side-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        /* Поля введення та кнопки */
+        .button-box, .input-field {
+            padding: 15px;
+            border: 2px solid gold;
+            background-color: gold;
+            border-radius: 5px;
+            text-align: center;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            color: black;
+        }
+        
+        .button-box:hover {
+            background-color: white;
+            color: gold;
+        }
+        
+        .input-field {
+            cursor: text;
+        }
+        
+        /* Нижній блок з інформацією про покупки та продажі */
+        .bottom-section {
+            display: flex;
+            width: 100%;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+        
+        .info-box {
+            width: 45%;
+            height: 150px;
+            border: 2px solid gold;
+            background-color: white;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="input-box">BTC/USD</div>
+            <div class="button-box" onclick="window.location.href='http://127.0.0.1:5000/balance'">Balance</div> <!-- Кнопка балансу -->
+        </header>
+        <main>
+            <!-- Графік тепер клікабельний -->
+            <div class="large-box" onclick="openChartPage()">
+                <canvas id="chart"></canvas> <!-- Місце для графіка -->
+            </div>
+            <div class="side-panel">
+                <input class="input-field" type="number" placeholder="Enter amount"> <!-- Поле введення суми -->
+                <div class="button-box" onclick="window.location.href='http://127.0.0.1:5000/buy'">Buy</div> <!-- Кнопка покупки -->
+                <input class="input-field" type="number" placeholder="Enter amount"> <!-- Поле введення суми -->
+                <div class="button-box" onclick="window.location.href='http://127.0.0.1:5000/sell'">Sell</div> <!-- Кнопка продажу -->
+            </div>
+        </main>
+        <div class="bottom-section">
+            <div class="info-box" onclick="openTradesPage()">📊 Моментальні покупки</div>
+            <div class="info-box" onclick="openSalesPage()">📉 Моментальні продажі</div>
+        </div>
+        
+        <script>
+            /* Функції редіректу на сторінки моментальних покупок і продажів */
+            function openTradesPage() {
+                window.location.href = "http://127.0.0.1:5000/trades"; // ВСТАВ СВОЮ ССИЛКУ ТУТ ДЛЯ ПОКУПОК
+            }
+        
+            function openSalesPage() {
+                window.location.href = "http://127.0.0.1:5000/trades"; // ВСТАВ СВОЮ ССИЛКУ ТУТ ДЛЯ ПРОДАЖІВ
+            }
+        </script>
+        
+    </div>
+    <script>
+        /* Функція для редіректу на сторінку з графіком */
+        function openChartPage() {
+            window.location.href = "http://127.0.0.1:5000/chart"; // ВСТАВ СВОЮ ССИЛКУ ТУТ
+        }
+
+        /* Налаштування графіка Chart.js */
+        const ctx = document.getElementById('chart').getContext('2d');
+        const chart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+                datasets: [{
+                    label: 'Bitcoin Price',
+                    data: [30000, 35000, 40000, 45000, 42000, 47000, 50000],
+                    borderColor: 'gold',
+                    fill: false
+                }]
+            }
+        });
+    </script>
+</body>
+</html>

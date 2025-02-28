@@ -1,0 +1,55 @@
+h1 {
+    color: #333;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.list-group-item {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    margin-bottom: 10px;
+    padding: 15px;
+}
+
+.list-group-item h2 {
+    color: #007bff;
+    margin-top: 0;
+}
+
+.list-group-item p {
+    margin-bottom: 10px;
+}
+
+.list-group-item em {
+    color: #6c757d;
+}
+
+.btn-group {
+    margin-top: 10px;
+}
+
+.btn-primary, .btn-danger {
+    margin-right: 10px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-control {
+    margin-bottom: 10px;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.navbar-nav .nav-link {
+    margin-right: 10px;
+}
+
+.form-title {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}

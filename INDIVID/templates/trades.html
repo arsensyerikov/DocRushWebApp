@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Моментальні покупки і продажі</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Чорний фон із золотими рамками */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: black;
+            color: gold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        .trades-container {
+            width: 80%;
+            max-width: 600px;
+            padding: 20px;
+            border: 2px solid gold;
+            border-radius: 10px;
+            background-color: black;
+            text-align: center;
+        }
+
+        .trade-box {
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            border: 2px solid gold;
+            border-radius: 5px;
+            background-color: white;
+            color: black;
+            font-size: 18px;
+        }
+
+        .button-box {
+            margin-top: 20px;
+            padding: 15px;
+            width: 200px;
+            border: 2px solid gold;
+            background-color: gold;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .button-box:hover {
+            background-color: white;
+            color: gold;
+        }
+    </style>
+</head>
+<body>
+    <h2>Моментальні покупки і продажі</h2>
+    <div class="trades-container">
+        <div class="trade-box" id="trades">📊 Завантаження...</div>
+        <div class="trade-box" id="sales">📉 Завантаження...</div>
+    </div>
+    <div class="button-box" onclick="window.location.href='http://127.0.0.1:5000'">Назад</div>
+
+    <script>
+        /* Створюємо випадкові покупки та продажі */
+        function generateTrades() {
+            let tradeList = "";
+            let salesList = "";
+            for (let i = 0; i < 5; i++) {
+                let time = new Date().toLocaleTimeString();
+                let amount = (Math.random() * 0.5).toFixed(6) + " BTC";
+                tradeList += `<p>🟢 ${time} - Куплено ${amount}</p>`;
+                salesList += `<p>🔴 ${time} - Продано ${amount}</p>`;
+            }
+            document.getElementById("trades").innerHTML = tradeList;
+            document.getElementById("sales").innerHTML = salesList;
+        }
+
+        /* Викликаємо генерацію випадкових даних */
+        generateTrades();
+    </script>
+</body>
+</html>

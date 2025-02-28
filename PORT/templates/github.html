@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Link</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+            position: relative;
+        }
+
+        .container {
+            text-align: center;
+            display: inline-block;
+        }
+
+        .arrow {
+            font-size: 2.5rem;
+            color: #28a745;
+            position: absolute;
+        }
+
+        .arrow-up {
+            top: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .arrow-down {
+            bottom: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .arrow-left {
+            left: -50px;
+            top: 50%;
+            transform: translateY(-50%) rotate(90deg);
+        }
+
+        .arrow-right {
+            right: -50px;
+            top: 50%;
+            transform: translateY(-50%) rotate(-90deg);
+        }
+
+        a {
+            font-size: 1.5rem;
+            color: #28a745;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translate(0, 0);
+            }
+            40% {
+                transform: translate(0, -10px);
+            }
+            60% {
+                transform: translate(0, -5px);
+            }
+        }
+
+        .arrow-up, .arrow-down {
+            animation: bounce 1.5s infinite;
+        }
+
+        .arrow-left, .arrow-right {
+            animation: bounce 1.5s infinite;
+        }
+
+        .btn-main {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .btn-main:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="arrow arrow-down">&#8593;</div>
+        <div class="arrow arrow-left">&#8594;</div>
+        <a href="https://github.com/arsensyerikov" target="_blank">https://github.com/arsensyerikov</a>
+        <div class="arrow arrow-right">&#8592;</div>
+        <div class="arrow arrow-up">&#8595;</div>
+    </div>
+    <a href="main_page" class="btn-main">На головну</a>
+</body>
+</html>

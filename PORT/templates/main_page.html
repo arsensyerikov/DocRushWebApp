@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Привітання</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f8f9fa;
+        }
+
+        .card-container {
+            display: flex;
+            width: 600px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-container img {
+            width: 240px;
+            height: 400px;
+            object-fit: cover;
+            border-top-left-radius: 8px;
+            border-bottom-left-radius: 8px;
+        }
+
+        .card-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 20px;
+            width: 100%;
+            background-color: #f8f9fa;
+        }
+
+        h1 {
+            font-size: 2rem;
+            color: #28a745;
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin: 5px 0;
+        }
+
+        .button-container {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #ffffff;
+            background-color: #28a745;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        a:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="card-container">
+        <img src="{{ url_for('static', filename='images/DSCN1046.JPG') }}" alt="Фото">
+        <div class="card-content">
+            <h1 class="mb-3">Арсен Сєріков</h1>
+            <p>Вік: 14 років</p>
+            <p>Дата народження: 13.02.2010</p>
+            <p>Стать: чоловіча</p>
+            <p>Опис: професійний плавець та дуже люблю програмувати на мові пайтон я хочу з вами поділитися декільками своїми проектами</p>
+            <div class="button-container">
+                <a href="github" class="stretched-link">Мій GITHUB</a>
+                <a href="my_py_project" class="stretched-link">Мій проект</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

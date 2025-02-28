@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Нотатки - ІТ школа Арсенал</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #212529;
+        }
+
+        /* Heading Styles */
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+            color: #007bff;
+        }
+
+        /* Form and Container Styles */
+        .container {
+            width: 90%;
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .note {
+            padding: 1rem;
+            border: 1px solid #dee2e6;
+            border-radius: 0.25rem;
+            margin-bottom: 1rem;
+            background-color: #f8f9fa;
+        }
+
+        .note h3 {
+            margin-top: 0;
+            color: #007bff;
+        }
+
+        .note p {
+            margin: 0;
+        }
+
+        /* Button Back to Main Styles */
+        .btn-back, .btn-pay {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #fff;
+            text-align: center;
+            text-decoration: none;
+            background: linear-gradient(45deg, #ff6b6b, #f7b42c, #5f27cd, #1dd1a1);
+            border: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+            background-size: 400% 400%;
+            animation: gradient 5s ease infinite;
+            margin-top: 20px;
+            display: block;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .btn-back:hover, .btn-pay:hover {
+            background-position: 100% 0;
+        }
+
+        /* Success Message Styles */
+        #successMessage {
+            display: none;
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Інформація про дитину</h1>
+    <div class="container">
+        <div class="note">
+            <h3>Ім'я: <span id="childName"></span></h3>
+            <p><strong>Вік:</strong> <span id="childAge"></span></p>
+            <p><strong>Стиль плавання:</strong> <span id="swimmingStyle"></span></p>
+            <p><strong>Чи дитина ходила кудись раніше:</strong> <span id="previousExperience"></span></p>
+            <p><strong>Вимоги від тренера:</strong> <span id="coachRequirements"></span></p>
+        </div>
+
+        <!-- Payment Section -->
+        <div class="payment">
+            <p><strong>Оберіть суму для оплати:</strong></p>
+            <label><input type="radio" name="amount" value="100"> 50$ Початкова група</label><br>
+            <label><input type="radio" name="amount" value="200"> 75$ Молодша група</label><br>
+            <label><input type="radio" name="amount" value="300"> 135$ Старша група</label><br>
+            <button class="btn-pay" id="payButton">Оплатити</button>
+        </div>
+
+        <!-- Success Message -->
+        <div id="successMessage">
+            Операція успішна, дякуємо! Я вам обіцяю зробити чемпіона з вашої дитини.
+        </div>
+
+        <a href="swim1" class="btn-back">Повернутися на головну</a>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Retrieve data from localStorage
+            const childName = localStorage.getItem('childName');
+            const childAge = localStorage.getItem('childAge');
+            const swimmingStyle = localStorage.getItem('swimmingStyle');
+            const previousExperience = localStorage.getItem('previousExperience');
+            const coachRequirements = localStorage.getItem('coachRequirements');
+
+            // Display the data
+            document.getElementById('childName').textContent = childName;
+            document.getElementById('childAge').textContent = childAge;
+            document.getElementById('swimmingStyle').textContent = swimmingStyle;
+            document.getElementById('previousExperience').textContent = previousExperience;
+            document.getElementById('coachRequirements').textContent = coachRequirements;
+
+            // Handle payment
+            document.getElementById('payButton').addEventListener('click', function() {
+                const amount = document.querySelector('input[name="amount"]:checked');
+                if (amount) {
+                    document.getElementById('successMessage').style.display = 'block';
+                } else {
+                    alert('Будь ласка, оберіть суму для оплати.');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

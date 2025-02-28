@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Шкільні новини</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 1em;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 1em;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+main {
+    padding: 1em;
+}
+
+footer {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 1em;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+.button-container {
+    text-align: center;
+    margin-top: 2em;
+}
+
+.button-container button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 1em;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.button-container button:hover {
+    background-color: #45a049;
+}
+
+.button-container a.home-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 1em;
+    font-size: 1em;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.button-container a.home-button:hover {
+    background-color: #45a049;
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Шкільні новини</h1>
+        <nav>
+            <ul>
+                <li><a href="#" onclick="showNewsPage()">Новини</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="content">
+        <!-- Контент буде змінюватися тут -->
+        <section>
+            <h2>Ласкаво просимо до нашої школи!</h2>
+            <p>На цій сторінці ви можете знайти останні новини нашої школи.</p>
+        </section>
+        <div class="button-container">
+            <a class="home-button" href="web2">Перейти на головну</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2024 Ваша школа. Всі права захищені.</p>
+    </footer>
+
+    <script>
+        function showHomePage() {
+            document.getElementById('content').innerHTML = `
+                <section>
+                    <h2>Ласкаво просимо до нашої школи!</h2>
+                    <p>На цій сторінці ви можете знайти останні новини нашої школи (нажміть на кнопку новини і ви дізнєтеся про наші новини).</p>
+                </section>
+                <div class="button-container">
+                    <a class="home-button" href="web2">Перейти на головну</a>
+                </div>
+            `;
+        }
+
+        function showNewsPage() {
+            const newsSection = document.getElementById('content');
+
+            const news = [
+                {
+                    title: "Новина 1",
+                    content: "Відкриття Нового Курсу Штучний Інтелект та Машинне Навчання IT школа Арсенал з радістю повідомляє про запуск нового курсу, присвяченого штучному інтелекту та машинному навчанню. Цей курс охоплюватиме основи нейронних мереж, алгоритми класифікації, регресії та кластеризації, а також роботу з бібліотеками Python, такими як TensorFlow і Keras. Запрошуємо всіх бажаючих відкрити для себе світ штучного інтелекту та опанувати передові технології, що змінюють наше майбутнє."
+                },
+                {
+                    title: "Новина 2",
+                    content: "Партнерство з Компанією Tech Innovators IT школа Арсенал оголошує про нове партнерство з провідною технологічною компанією Tech Innovators. Це співробітництво дозволить нашим студентам проходити стажування та практику в реальних проектах, отримуючи безцінний досвід і можливість працювати з найсучаснішими технологіями. Ми віримо, що цей крок сприятиме професійному зростанню наших студентів та їх успішній кар'єрі в IT-індустрії."
+                },
+                {
+                    title: "Новина 3",
+                    content: "Вебінар Майбутнє Кібербезпеки: Виклики та Можливості Запрошуємо всіх бажаючих на безкоштовний вебінар Майбутнє кібербезпеки: виклики та можливості, який відбудеться 20 липня 2024 року о 18:00. Вебінар проведе наш експерт з кібербезпеки, який поділиться останніми тенденціями в галузі, методами захисту інформаційних систем та можливостями кар'єрного розвитку в сфері кібербезпеки. Реєстрація обов'язкова, кількість місць обмежена."
+                },
+                {
+                    title: "Новина 4",
+                    content: "Випускна Церемонія та День Відкритих Дверей З радістю запрошуємо всіх студентів, їх родини та друзів на випускну церемонію, яка відбудеться 5 серпня 2024 року о 16:00 в головному кампусі IT школи Арсенал. Під час заходу буде відзначено досягнення наших випускників, а також пройдуть презентації найкращих дипломних проектів. Одночасно відбудеться День відкритих дверей для нових студентів, де вони зможуть ознайомитися з програмами навчання, поспілкуватися з викладачами та дізнатися більше про можливості, які надає наша школа."
+                }
+            ];
+
+            // Вибираємо випадкову новину
+            const randomNews = news[Math.floor(Math.random() * news.length)];
+
+            // Додаємо новину в HTML
+            newsSection.innerHTML = `
+                <section>
+                    <h2>${randomNews.title}</h2>
+                    <p>${randomNews.content}</p>
+                </section>
+                <div class="button-container">
+                    <a class="home-button" href="web2">Перейти на головну</a>
+                </div>
+            `;
+        }
+
+        function redirectToWeb2() {
+            window.location.href = 'web2.html';
+        }
+
+        // Показуємо головну сторінку за замовчуванням
+        document.addEventListener('DOMContentLoaded', showHomePage);
+    </script>
+</body>
+</html>

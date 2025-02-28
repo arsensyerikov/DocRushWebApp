@@ -1,0 +1,61 @@
+from aiogram import types
+from bot.keyboards.inline import test
+from bot.states import Test
+
+from loader import dp
+
+
+@dp.message_handler(state=None, commands='test')
+async def start_test(message: types.Message):
+    await Test.TestStart.set()
+    await message.answer('You will pass short test. To start press /test again.')
+
+
+@dp.message_handler(state=Test.TestStart, commands='test')
+async def start_test(message: types.Message):
+    await Test.Q1.set()
+    await message.answer('Squids have ... hearts: ', reply_markup=test.keyboards[0])
+
+
+@dp.callback_query_handler(state=Test.Q1)
+async def second_step(call: types.CallbackQuery):
+    print(call.data)
+    await Test.Q2.set()
+    await call.message.answer(f'the pervious answer was {call.data}. What is the capital city of Ukraine', reply_markup=test.keyboards[1])
+
+
+@dp.callback_query_handler(state=Test.Q2)
+async def second_step(call: types.CallbackQuery):
+    print(call.data)
+    await Test.Q3.set()
+    await call.message.answer(f'the pervious answer was {call.data}. who is the king of swimming"?', reply_markup=test.keyboards[2])
+
+
+@dp.callback_query_handler(state=Test.Q3)
+async def second_step(call: types.CallbackQuery):
+    print(call.data)
+    await Test.Q4.set()
+    await call.message.answer(f'the pervious answer was {call.data}. How mach people in USA"? ', reply_markup=test.keyboards[3])
+
+
+@dp.callback_query_handler(state=Test.Q4)
+async def second_step(call: types.CallbackQuery):
+    print(call.data)
+    await Test.TestEnd.set()
+    await call.message.answer(f'the pervious answer was {call.data}. Your score is  ')
+
+
+from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
+from .servis import creat_inline_keyboart
+
+answers = [
+    {'1': 'wrong', '2': 'wrong', '3': 'correct', '4': 'wrong'},
+    {'Lviv': 'wrong', 'Ivano-frankivsk': 'wrong', 'Kuiv': 'correct', 'Poltva': 'wrong'},
+    {'Wilsson': 'wrong', 'Ronaldo': 'wrong', 'Mudryk': 'wrong', 'felps': 'correct'},
+    {'123,45m': 'wrong', '331,9m': 'correct', '304,45m': 'wrong', '44,3m': 'wrong'},
+    ]
+keyboards = []
+for answer in answers:
+    answer_kb = creat_inline_keyboart(answer)
+    keyboards.append(answer_kb)
+

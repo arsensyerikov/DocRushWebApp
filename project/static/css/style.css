@@ -1,0 +1,43 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Забезпечує розмір на весь екран */
+  }
+  
+  .container {
+    text-align: center;
+  }
+  
+  h1 {
+    color: #007bff; /* Синій колір */
+  }
+  
+  h2 {
+    color: #6c757d; /* Сірий колір */
+    margin-bottom: 30px; /* Відступ знизу */
+  }
+  
+  .btn {
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn:hover {
+    background-color: #0056b3; /* Темніший синій при наведенні */
+  }
+  

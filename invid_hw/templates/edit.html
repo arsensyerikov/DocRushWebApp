@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
+    <title>Редагувати публікацію</title>
+</head>
+
+<body>
+    <h1>Редагувати публікацію</h1>
+    <form method="POST">
+        <label for="content">Вміст:</label><br>
+        <textarea name="content" id="content" rows="5">{{ post.content }}</textarea><br>
+        <label for="title">Заголовок (необов'язково):</label><br>
+        <input type="text" name="title" id="title" value="{{ post.title or '' }}"><br><br>
+        <button type="submit">Зберегти</button>
+    </form>
+</body>
+
+</html>

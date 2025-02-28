@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Баланс</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Чорний фон із золотими елементами */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: black;
+            color: gold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            width: 60%;
+            max-width: 400px;
+            padding: 20px;
+            border: 2px solid gold;
+            border-radius: 10px;
+            background-color: black;
+            text-align: center;
+        }
+
+        .balance-box {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 20px 0;
+            padding: 15px;
+            border: 2px solid gold;
+            border-radius: 5px;
+            background-color: white;
+            color: black;
+        }
+
+        .button-box {
+            padding: 15px;
+            width: 100%;
+            border: 2px solid gold;
+            background-color: gold;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .button-box:hover {
+            background-color: white;
+            color: gold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Ваш баланс</h2>
+        <div class="balance-box" id="balance">0.000 BTC</div>
+        <div class="button-box" onclick="updateBalance()">Оновити баланс</div>
+    </div>
+
+    <script>
+        function updateBalance() {
+            // Генеруємо випадковий баланс для демонстрації
+            let randomBalance = (Math.random() * 5).toFixed(6); 
+            document.getElementById('balance').innerText = randomBalance + " BTC";
+        }
+    </script>
+</body>
+</html>

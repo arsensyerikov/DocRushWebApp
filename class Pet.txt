@@ -1,0 +1,24 @@
+class Pet():
+    def __init__(self, name, age, color):
+        self.name = name
+        self.age = age
+        self.color = color
+    def sound (self):
+        print ("pet cat mede sound")
+cat = Pet ("bobik", 5, "broun")
+
+dog = Pet ("grisha", 6, "black")
+
+print(f"???: {cat.name}, ???: {cat.age}|, ?????: {cat.color}") 
+cat.sound()
+print(f"???: {dog.name}, ???: {dog.age}, ?????: {dog. color}")
+dog.sound ()
+class Dog (Pet):
+    breed = "Some breed of dog"
+    size = 3
+    def __init__(self, name, age, color, breed, size):
+        super().__init__(name, age, color)
+        self.breed = breed
+        self.size = size
+print(Pet)
+

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Додати привітання</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="greeting-container">
+        <h1>Додати нове привітання</h1>
+        <form method="POST">
+            <label for="greeting">Привітання:</label>
+            <input type="text" id="greeting" name="greeting" required>
+            <button type="submit">Додати</button>
+        </form>
+    </div>
+</body>
+</html>

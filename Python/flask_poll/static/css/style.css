@@ -1,0 +1,60 @@
+/* Стилі для центрування контенту */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center; /* Центруємо текст по центру */
+    margin: 0;
+    padding: 0;
+}
+
+/* Контейнер для всередині body */
+.container {
+    max-width: 600px; /* Максимальна ширина контейнера */
+    width: 90%; /* Ширина контейнера */
+    margin: 0 auto; /* Автоматичне центрування по горизонталі */
+}
+
+/* Заголовки */
+h1 {
+    font-size: 36px;
+    color: #333;
+}
+
+h2 {
+    font-size: 24px;
+    color: #666;
+}
+
+h3 {
+    font-size: 18px;
+    color: #888;
+}
+
+/* Зображення */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px auto; /* Автоматичне центрування по горизонталі */
+}
+
+/* Посилання */
+a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+a:hover {
+    background-color: #0056b3;
+}
+
+/* Роздільник */
+hr {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 20px auto; /* Автоматичне центрування по горизонталі */
+}

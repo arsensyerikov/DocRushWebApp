@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
+    <title>Додати публікацію</title>
+</head>
+
+<body>
+    <h1>Додати публікацію</h1>
+    <form method="POST">
+        <label for="content">Вміст:</label><br>
+        <textarea name="content" id="content" rows="5"></textarea><br>
+        <label for="title">Заголовок (необов'язково):</label><br>
+        <input type="text" name="title" id="title"><br><br>
+        <button type="submit">Додати публікацію</button>
+    </form>
+</body>
+
+</html>

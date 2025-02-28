@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Свічковий графік BTC/USD</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-chart-financial"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Чорний фон із золотими елементами */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: black;
+            color: gold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        .chart-container {
+            width: 80%;
+            max-width: 1000px;
+            height: 500px;
+            border: 2px solid gold;
+            border-radius: 10px;
+            background-color: white;
+            padding: 20px;
+        }
+
+        .button-box {
+            margin-top: 20px;
+            padding: 15px;
+            width: 200px;
+            border: 2px solid gold;
+            background-color: gold;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .button-box:hover {
+            background-color: white;
+            color: gold;
+        }
+    </style>
+</head>
+<body>
+    <h2>Свічковий графік BTC/USD</h2>
+    <div class="chart-container">
+        <canvas id="candlestickChart"></canvas>
+    </div>
+    <div class="button-box" onclick="window.location.href='http://127.0.0.1:5000'">Назад</div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const ctx = document.getElementById('candlestickChart').getContext('2d');
+
+            // Приклад даних для свічкового графіка (Open, High, Low, Close)
+            const candlestickData = [
+                { t: '2024-02-01', o: 42000, h: 43000, l: 41500, c: 42800 },
+                { t: '2024-02-02', o: 42800, h: 44000, l: 42500, c: 43500 },
+                { t: '2024-02-03', o: 43500, h: 43800, l: 43000, c: 43200 },
+                { t: '2024-02-04', o: 43200, h: 43700, l: 42800, c: 43400 },
+                { t: '2024-02-05', o: 43400, h: 45000, l: 43200, c: 44800 },
+                { t: '2024-02-06', o: 44800, h: 45500, l: 44000, c: 45200 },
+                { t: '2024-02-07', o: 45200, h: 46000, l: 44500, c: 45800 }
+            ];
+
+            new Chart(ctx, {
+                type: 'candlestick',
+                data: {
+                    datasets: [{
+                        label: 'BTC/USD',
+                        data: candlestickData,
+                        borderColor: 'gold',
+                        backgroundColor: 'gold',
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            labels: { color: 'black' }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            ticks: { color: 'black' }
+                        },
+                        y: {
+                            ticks: { color: 'black' }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

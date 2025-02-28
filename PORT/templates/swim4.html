@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Нотатки - ІТ школа Арсенал</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #212529;
+        }
+
+        /* Heading Styles */
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+            color: #007bff;
+        }
+
+        /* Form and Container Styles */
+        .container {
+            width: 90%;
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .form-group input[type="text"],
+        .form-group textarea {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #ced4da;
+            border-radius: 0.25rem;
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        .form-group button {
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            font-weight: bold;
+            color: #fff;
+            background: linear-gradient(45deg, #ff6b6b, #f7b42c, #5f27cd, #1dd1a1);
+            border: none;
+            border-radius: 0.25rem;
+            cursor: pointer;
+            transition: background 0.3s;
+            background-size: 400% 400%;
+            animation: gradient 5s ease infinite;
+        }
+
+        .form-group button:hover {
+            background-position: 100% 0;
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Notes Section Styles */
+        .notes {
+            margin-top: 20px;
+        }
+
+        .note {
+            padding: 1rem;
+            border: 1px solid #dee2e6;
+            border-radius: 0.25rem;
+            margin-bottom: 1rem;
+            background-color: #f8f9fa;
+        }
+
+        .note h3 {
+            margin-top: 0;
+            color: #007bff;
+        }
+
+        .note p {
+            margin: 0;
+        }
+
+        /* Button Back to Main Styles */
+        .btn-back {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #fff;
+            text-align: center;
+            text-decoration: none;
+            background: linear-gradient(45deg, #ff6b6b, #f7b42c, #5f27cd, #1dd1a1);
+            border: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+            background-size: 400% 400%;
+            animation: gradient 5s ease infinite;
+            margin-top: 20px;
+            display: block;
+            text-align: center;
+        }
+
+        .btn-back:hover {
+            background-position: 100% 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Заповніть анкету вашої дитини для вступу в клуб</h1>
+    <div class="container">
+        <form id="noteForm">
+            <div class="form-group">
+                <label for="childName">Імя</label>
+                <input type="text" id="childName" name="childName" required>
+            </div>
+            <div class="form-group">
+                <label for="childAge">Вік</label>
+                <input type="text" id="childAge" name="childAge" required>
+            </div>
+            <div class="form-group">
+                <label for="swimmingStyle">Стиль плавання</label>
+                <input type="text" id="swimmingStyle" name="swimmingStyle" required>
+            </div>
+            <div class="form-group">
+                <label for="previousExperience">Чи дитина ходила кудись раніше</label>
+                <input type="text" id="previousExperience" name="previousExperience" required>
+            </div>
+            <div class="form-group">
+                <label for="coachRequirements">Вимоги від тренера</label>
+                <input type="text" id="coachRequirements" name="coachRequirements" required>
+            </div>
+            <div class="form-group">
+                
+                <button type="button" id="continueBtn">Продовжити</button>
+            </div>
+        </form>
+        <div class="notes" id="notesContainer">
+            <!-- Notes will be added here dynamically -->
+        </div>
+        <a href="swim1" class="btn-back">Повернутися на головну</a>
+    </div>
+    <script>
+        document.getElementById('noteForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const childName = document.getElementById('childName').value;
+            const childAge = document.getElementById('childAge').value;
+            const swimmingStyle = document.getElementById('swimmingStyle').value;
+            const previousExperience = document.getElementById('previousExperience').value;
+            const coachRequirements = document.getElementById('coachRequirements').value;
+
+            if (childName && childAge && swimmingStyle && previousExperience && coachRequirements) {
+                const noteContainer = document.getElementById('notesContainer');
+
+                const noteDiv = document.createElement('div');
+                noteDiv.classList.add('note');
+
+                const noteTitle = document.createElement('h3');
+                noteTitle.textContent = `Імя: ${childName}`;
+
+                const noteContent = document.createElement('p');
+                noteContent.innerHTML = `
+                    <strong>Вік:</strong> ${childAge}<br>
+                    <strong>Стиль плавання:</strong> ${swimmingStyle}<br>
+                    <strong>Чи дитина ходила кудись раніше:</strong> ${previousExperience}<br>
+                    <strong>Вимоги від тренера:</strong> ${coachRequirements}
+                `;
+
+                noteDiv.appendChild(noteTitle);
+                noteDiv.appendChild(noteContent);
+
+                noteContainer.appendChild(noteDiv);
+
+                // Clear form
+                document.getElementById('noteForm').reset();
+            }
+        });
+
+        document.getElementById('continueBtn').addEventListener('click', function() {
+            const childName = document.getElementById('childName').value;
+            const childAge = document.getElementById('childAge').value;
+            const swimmingStyle = document.getElementById('swimmingStyle').value;
+            const previousExperience = document.getElementById('previousExperience').value;
+            const coachRequirements = document.getElementById('coachRequirements').value;
+
+            if (childName && childAge && swimmingStyle && previousExperience && coachRequirements) {
+                // Store data in localStorage
+                localStorage.setItem('childName', childName);
+                localStorage.setItem('childAge', childAge);
+                localStorage.setItem('swimmingStyle', swimmingStyle);
+                localStorage.setItem('previousExperience', previousExperience);
+                localStorage.setItem('coachRequirements', coachRequirements);
+
+                // Redirect to the next page
+                window.location.href = 'swim6';
+            } else {
+                alert('Будь ласка, заповніть всі поля форми перед продовженням.');
+            }
+        });
+    </script>
+</body>
+</html>

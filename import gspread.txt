@@ -1,0 +1,23 @@
+import gspread
+from oauth2client.service_account import ServiceAccountCredentials
+scope = ["https://www.googleapis.com/auth/spreadsheets", "https://www.googleapis.com/auth/drive"]
+creds = ServiceAccountCredentials.from_json_keyfile_name('proj.json', scope)
+client = gspread.authorize(creds)
+
+data = client.open_by_key('1_i8EJWtitvMsrAWPpYg20G15TZCbpr_EJA0xvpNFeWg')
+data1 = data.sheet1
+print(data1.get_all_values())
+
+
+ars = data.worksheet("lesson")
+print(ars.get_all_values()[9][0])
+ars.update("B1:B12", [["December"],["January"],["February"],["March"],["April"],["May"],["June"],["July"],["August"],["September"],["October"],["November"]])
+sra = ars.get_all_values()
+for i in sra:
+    print(i)
+ras = data.add_worksheet(title="data", rows=20, cols=15)
+ras.update("A1:A5", [["1, data"],["2, data"],["3, data"],["4, data"],["5, data"]])
+total = ras.get_all_values()
+for i in total:
+    print(i)
+

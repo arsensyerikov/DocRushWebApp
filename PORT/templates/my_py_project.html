@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Проекти</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #343a40;
+        }
+
+        .project-card {
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            padding: 15px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            color: #28a745;
+            margin-bottom: 10px;
+        }
+
+        .project-description {
+            font-size: 1rem;
+            color: #6c757d;
+            margin-bottom: 15px;
+        }
+
+        .project-link {
+            font-size: 1rem;
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .project-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Наші Проекти</h1>
+
+        <div class="project-card">
+            <div class="project-title">Проект 1</div>
+            <div class="project-description">Опис проекту 1. Це короткий опис, який пояснює, що саме робить цей проект і чому він важливий.</div>
+            <a href="{{ url_for('web1') }}" class="stretched-link project-link">Відкрити Проект</a>
+        </div>
+
+        <div class="project-card">
+            <div class="project-title">Проект 2</div>
+            <div class="project-description">Опис проекту 2. Це короткий опис, який пояснює, що саме робить цей проект і чому він важливий.</div>
+            <a href="{{ url_for('swim') }}" class="stretched-link project-link">Відкрити Проект</a>
+        </div>
+
+        <!-- Додайте більше проектів за потребою -->
+
+    </div>
+</body>
+</html>

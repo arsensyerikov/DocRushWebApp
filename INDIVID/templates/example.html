@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Оплата</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: black;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            width: 80%;
+            height: 80%;
+            background-color: #1e1e1e;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            box-shadow: 0 0 15px gold;
+        }
+        .input-box {
+            width: 80%;
+            padding: 15px;
+            font-size: 18px;
+            border-radius: 5px;
+            border: 2px solid gold;
+            background-color: white;
+            color: black;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .payment-window {
+            width: 80%;
+            height: 50%;
+            border: 2px solid gold;
+            background-color: white;
+            color: black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            font-weight: bold;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .button {
+            width: 50%;
+            padding: 15px;
+            font-size: 18px;
+            border-radius: 5px;
+            background-color: gold;
+            color: black;
+            font-weight: bold;
+            cursor: pointer;
+            text-align: center;
+            transition: 0.3s;
+        }
+        .button:hover {
+            background-color: white;
+            color: gold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <input class="input-box" type="number" placeholder="Введіть суму для оплати">
+        <div class="payment-window">Деталі транзакції</div>
+        <div class="button" onclick="processPayment()">Оплатити</div>
+    </div>
+    <script>
+        function processPayment() {
+            alert("Оплата успішна!");
+        }
+    </script>
+</body>
+</html>

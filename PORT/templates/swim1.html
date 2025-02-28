@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('https://www.zaha-hadid.com/wp-content/uploads/2019/12/zha_aquaticscentre_huftoncrow_005.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            margin: auto;
+            margin-top: 20px;
+            width: 80%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-back {
+            display: inline-block;
+            padding: 0.75rem 1.25rem;
+            border-radius: 0.3rem;
+            background-color: #ff6347; /* Tomato color */
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: background-color 0.3s, border-color 0.3s;
+            margin-top: 10px;
+        }
+
+        .btn-back:hover {
+            background-color: #ff4500; /* OrangeRed color */
+            border-color: #e03e00;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            color: #199dd1;
+            margin-bottom: 20px;
+        }
+
+        p {
+            color: #e03e00;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .pricing-header {
+            text-align: center;
+        }
+
+        .pricing-header h1 {
+            margin-top: 20px;
+        }
+
+        /* Card Styles */
+        .card {
+            border: none;
+            border-radius: 0.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-header {
+            background-color: #f8f9fa;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .card-body {
+            background-color: #fff;
+            padding: 2rem;
+        }
+
+        .card-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .pricing-card-title {
+            font-size: 3rem;
+            margin: 20px 0;
+        }
+
+        /* List Styles */
+        ul {
+            padding-left: 0;
+            list-style-type: none;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        /* Media Queries for Responsive Design */
+        @media (max-width: 767.98px) {
+            .pricing-header h1 {
+                font-size: 2rem;
+            }
+            .pricing-header p {
+                font-size: 1rem;
+            }
+            .card-title {
+                font-size: 2rem;
+            }
+
+            .container {
+                width: 95%;
+                padding: 10px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    
+        </a>
+    </header>
+
+    <div class="container text-center">
+        <h1 class="fs-4">Найкращий плавальний клуб</h1>
+        <p class="fs-5 text-body-secondary">для дітей різного віку для досягнення цілей у спорті. Бажаємо вам успіху!</p>
+    </div>
+
+    <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+        <h1 class="display-4">Ціни та групи</h1>
+        <a href="swim2" class="btn-back">Про нас</a>
+    </div>
+
+    <main>
+        <div class="container">
+            <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+                <div class="col">
+                    <div class="card mb-4 rounded-3 shadow-sm">
+                        <div class="card-header py-3">
+                            <h4 class="my-0 fw-normal">Початкова група</h4>
+                        </div>
+                        <div class="card-body">
+                            <h1 class="card-title pricing-card-title">$50<small class="text-body-secondary fw-light">/місяць</small></h1>
+                            <ul class="list-unstyled mt-3 mb-4">
+                                <li>Найкращий початок для молодших плавців</li>
+                                <li>Діти віком 5 - 7 років</li>
+                                <li>Щоденні тренування</li>
+                                <li>Найкращі тренери</li>
+                            </ul>
+                            <a href="swim3" class="btn-back">Купити, вступити до групи</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card mb-4 rounded-3 shadow-sm">
+                        <div class="card-header py-3">
+                            <h4 class="my-0 fw-normal">Молодша група</h4>
+                        </div>
+                        <div class="card-body">
+                            <h1 class="card-title pricing-card-title">$75<small class="text-body-secondary fw-light">/місяць</small></h1>
+                            <ul class="list-unstyled mt-3 mb-4">
+                                <li>Вступ до найкращої дитячої плавальної команди</li>
+                                <li>Діти віком 7 - 13 років</li>
+                                <li>Удвічі більше тренувань, покращення навичок</li>
+                                <li>Перші змагання із золотою медаллю</li>
+                            </ul>
+                            <a href="swim4" class="btn-back">Купити, вступити до групи</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card mb-4 rounded-3 shadow-sm border-primary">
+                        <div class="card-header py-3 text-bg-primary border-primary">
+                            <h4 class="my-0 fw-normal">Старша група</h4>
+                        </div>
+                        <div class="card-body">
+                            <h1 class="card-title pricing-card-title">$135<small class="text-body-secondary fw-light">/місяць</small></h1>
+                            <ul class="list-unstyled mt-3 mb-4">
+                                <li>Найстарша команда збірників</li>
+                                <li>Діти віком 13 - 18 років</li>
+                                <li>Участь у міжнародних чемпіонатах</li>
+                                <li>Це той напрямок, який потрібен вам</li>
+                            </ul>
+                            <a href="swim5" class="btn-back">Купити, вступити до групи</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

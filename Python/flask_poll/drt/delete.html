@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
+    <title>Видалити публікацію</title>
+</head>
+
+<body><!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Delete Posts</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="container">
+            <h1 class="my-4">Delete Posts</h1>
+            <div class="list-group">
+                {% for post in posts %}
+                <div class="list-group-item">
+                    <h5 class="mb-1">{{ post.title }}</h5>
+                    <p class="mb-1">{{ post.content }}</p>
+                    <small>Created: {{ post.created }}</small>
+                    <form action="{{ url_for('delete_post', post_id=post.id) }}" method="post" class="float-right">
+                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                    </form>
+                </div>
+                {% endfor %}
+            </div>
+            <a href="{{ url_for('index') }}" class="btn btn-secondary mt-3">Back to Home</a>
+        </div>
+    </body>
+    </html>
+    
+    <h1>Видалити публікацію</h1>
+    <p>Ви впевнені, що хочете видалити цю публікацію?</p>
+    <p><b>Вміст:</b> {{ post.content }}</p>
+    <form method="POST">
+        <button type="submit">Видалити</button>
+    </form>
+</body>
+
+</html>
